@@ -93,7 +93,9 @@ def video_swap(video_path, id_vetor, swap_model, detect_model, save_path, temp_r
 
                     
 
-                reverse2wholeimage(frame_align_crop_tenor_list,swap_result_list, frame_mat_list, crop_size, frame, logoclass,\
+#                 reverse2wholeimage(frame_align_crop_tenor_list,swap_result_list, frame_mat_list, crop_size, frame, logoclass,\
+#                     os.path.join(temp_results_dir, 'frame_{:0>7d}.jpg'.format(frame_index)),no_simswaplogo,pasring_model =net,use_mask=use_mask, norm = spNorm)
+                reverse2wholeimage(frame_align_crop_tenor_list,swap_result_list, frame_mat_list, crop_size, frame,\
                     os.path.join(temp_results_dir, 'frame_{:0>7d}.jpg'.format(frame_index)),no_simswaplogo,pasring_model =net,use_mask=use_mask, norm = spNorm)
 
             else:
@@ -101,7 +103,7 @@ def video_swap(video_path, id_vetor, swap_model, detect_model, save_path, temp_r
                     os.mkdir(temp_results_dir)
                 frame = frame.astype(np.uint8)
                 if not no_simswaplogo:
-                    frame = logoclass.apply_frames(frame)
+                    #frame = logoclass.apply_frames(frame)
                 cv2.imwrite(os.path.join(temp_results_dir, 'frame_{:0>7d}.jpg'.format(frame_index)), frame)
         else:
             break
