@@ -47,7 +47,7 @@ if __name__ == '__main__':
         mode = 'ffhq'
     else:
         mode = 'None'
-    logoclass = watermark_image('./simswaplogo/simswaplogo.png')
+    #logoclass = watermark_image('./simswaplogo/simswaplogo.png')
     model = create_model(opt)
     model.eval()
 
@@ -102,8 +102,10 @@ if __name__ == '__main__':
         else:
             net =None
 
-        reverse2wholeimage(b_align_crop_tenor_list, swap_result_list, b_mat_list, crop_size, img_b_whole, logoclass, \
-            os.path.join(opt.output_path, 'result_whole_swapsingle.jpg'), opt.no_simswaplogo,pasring_model =net,use_mask=opt.use_mask, norm = spNorm)
+#         reverse2wholeimage(b_align_crop_tenor_list, swap_result_list, b_mat_list, crop_size, img_b_whole, logoclass, \
+#             os.path.join(opt.output_path, 'result_whole_swapsingle.jpg'), opt.no_simswaplogo,pasring_model =net,use_mask=opt.use_mask, norm = spNorm)
+        reverse2wholeimage(b_align_crop_tenor_list, swap_result_list, b_mat_list, crop_size, img_b_whole, \
+            os.path.join(opt.output_path, 'result_whole_swapsingle.jpg'), opt.no_simswaplogo=True,pasring_model =net,use_mask=opt.use_mask, norm = spNorm)
 
         print(' ')
 
